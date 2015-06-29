@@ -30,11 +30,13 @@ function setting(){
         echo "remoteip 172.16.36.2-254" >> /etc/pptpd.conf
         echo "ms-dns 8.8.8.8" >> /etc/ppp/options.pptpd
         echo "ms-dns 8.8.4.4" >> /etc/ppp/options.pptpd
-
+        
+        #create a passwd
         pass=`openssl rand 6 -base64`
         if [ "$1" != "" ]
         then pass=$1
         fi
+        
 
         echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
 
